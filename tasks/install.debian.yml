@@ -1,4 +1,6 @@
----
+Ppkg:
+      - python-dev	      - "{{ 'python3-dev' if ('python3-pip' == python_pip_package) else 'python-dev' }}"  # different python-dev for python3
+      - python-pip	      - "{{ python_pip_package }}"---
 - name: Establish some role-related facts
   set_fact:
     mongodb_major_version: "{{ mongodb_version[0:3] }}"
@@ -91,8 +93,8 @@
 - name: Install PIP
   apt:
     pkg:
-      - python-dev
-      - python-pip
+      - "{{ 'python3-dev' if ('python3-pip' == python_pip_package) else 'python-dev' }}"  # different python-dev for python3
+      - "{{ python_pip_package }}"
   when: mongodb_pymongo_from_pip | bool
 
 - name: Install setuptools (required for ansible 2.7+)
