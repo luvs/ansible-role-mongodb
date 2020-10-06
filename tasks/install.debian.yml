@@ -1,6 +1,3 @@
-Ppkg:
-      - python-dev	      - "{{ 'python3-dev' if ('python3-pip' == python_pip_package) else 'python-dev' }}"  # different python-dev for python3
-      - python-pip	      - "{{ python_pip_package }}"---
 - name: Establish some role-related facts
   set_fact:
     mongodb_major_version: "{{ mongodb_version[0:3] }}"
