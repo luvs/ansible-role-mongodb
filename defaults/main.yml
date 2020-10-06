@@ -13,7 +13,7 @@ mongodb_apt_key_id:
 mongodb_pymongo_from_pip: true                   # Install latest PyMongo via PIP or package manager
 mongodb_pymongo_pip_version: 3.7.1
 
-python_pip_package: "{{ 'python3-pip' if ('focal' == ansible_distribution_release) else 'python-pip' }}"
+python_pip_package: "{{n'python3-pip' if ('focal' == ansible_distribution_release) else 'python-pip' }}"
 
 mongodb_user_update_password: "on_create"        # MongoDB user password update default policy
 mongodb_manage_service: true
